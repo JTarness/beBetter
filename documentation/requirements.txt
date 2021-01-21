@@ -1,0 +1,4 @@
+- program should be able to see what cites user spends too much time on
+- user has controll over which sites the program can follow
+- user can set limits for how many hours they allow themselves on a website for daily use
+-
