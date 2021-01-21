@@ -1,21 +1,22 @@
 class User:
     websites = ["Twitter", "FaceBook", "Youtube"]
-    avg_dict = {}
-    for website in websites:
-        avg_dict[website] = 0
+
 
 
     def __init__(self, times):
-        self.websites = websites
-        self.web_dict = {websites[i]: times[i] for i in range(len(websites))}
-        self.calculateAverage(times)
+        self.websites = User.websites
+        self.web_dict = {}
+        for i, website in zip(times, self.websites):
+            self.web_dict[website] = times[i]
+        #User.calculateAverage(times)
 
-    def calculateAverage(self, times):
-        for website in websites:
-            avg_dict[websites[website]] = (avg_dict.get(websites[website]) + times[website])/2
+    #@classmethod
+    #def calculateAverage(cls, times):
+     #   for i, website in zip(times, websites):
+      #      cls.avg_dict[website] = (cls.avg_dict.get(website) + times[i])/2
 
     def addWebsite(self, website):
-        websites.append(website)
+        User.websites.append(website)
         self.websites.append(website)
         self.web_dict[self.website] = 0
 
@@ -24,8 +25,11 @@ class User:
         self.web_dict.pop(website)
 
     def updateWebsite(self, website, time):
-        self.wed_dict[website] = time
-        calculateAverage(time)
+        self.web_dict[website] = time
+        #User.calculateAverage(time)
+
+    def viewData(self):
+        print(self.web_dict)
 
 
 
@@ -44,5 +48,8 @@ while(not quit):
         website = input("enter website: ")
         time = input("enter time: ")
         u1.updateWebsite(website, time)
+        print("Time was updated")
+    elif(action == "view"):
+        u1.viewData()
     elif(action == "quit"):
         quit = True
